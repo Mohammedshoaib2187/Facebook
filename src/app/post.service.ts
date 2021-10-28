@@ -27,4 +27,12 @@ export class PostService {
       })
     })
   }
+  deletePost(id : string){
+    return this.http.post(`http://localhost:3000/post-delete/${id}`,{
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: localStorage.getItem("access_token") || ""
+      })
+    })
+  }
 }

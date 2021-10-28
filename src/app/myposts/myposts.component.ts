@@ -43,5 +43,15 @@ export class MypostsComponent implements OnInit {
       console.log(err)
     })
   }
+  delete( id2 :string){
+    if(confirm("Do you want to delete the post?")){
+      this.post.deletePost(id2).subscribe((data)=>{
+        console.log(data)
+        this.router.navigate(['/'])
+      },(err)=>{
+        console.log(err)
+      })
+    }
+  }
 
 }
