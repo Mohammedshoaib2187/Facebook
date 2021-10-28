@@ -14,6 +14,7 @@ import { FriendsComponent } from './friends/friends.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PostsComponent } from './posts/posts.component';
 import { AddpostComponent } from './addpost/addpost.component';
+import { MypostsComponent } from './myposts/myposts.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AddpostComponent } from './addpost/addpost.component';
     FriendsComponent,
     ProfileComponent,
     PostsComponent,
-    AddpostComponent
+    AddpostComponent,
+    MypostsComponent
   ],
   imports: [
     BrowserModule,

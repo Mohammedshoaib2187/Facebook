@@ -7,6 +7,7 @@ import { AllusersComponent } from './allusers/allusers.component';
 import { FriendsComponent } from './friends/friends.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddpostComponent } from './addpost/addpost.component';
+import { MypostsComponent } from './myposts/myposts.component';
 
 
 const routes: Routes = [
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path:"addpost",
     component: AddpostComponent,
+  },
+  {
+    path:"myposts",
+    component: MypostsComponent,
   }
 ];
 
