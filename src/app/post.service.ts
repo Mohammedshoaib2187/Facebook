@@ -11,10 +11,10 @@ export class PostService {
 
   addPost(data: postData,id:number,name:string){
     var maindata = { "userid" : id, "postname" : data.postname,"description" : data.description,"username":name}
-    return this.http.post("http://localhost:3000/post-insert",maindata)
+    return this.http.post("https://facebookserverapi.herokuapp.com/post-insert",maindata)
   }
 
   getposts(){
-    return this.http.get<Array<getData>>("http://localhost:3000/post-data")
+    return this.http.get<Array<getData>>("https://facebookserverapi.herokuapp.com/post-data")
   }
 }
