@@ -4,7 +4,7 @@
 <br><br>
 <div class="row">
     <div *ngFor="let user of userList; index as i">
-        <div class="card col-lg-4 col-sm-10 text-center mx-auto mb-4" *ngIf="id!=user['userid'] && check(user['userid'])">
+        <div class="card col-lg-4 col-sm-10 text-center mx-auto mb-4" *ngIf="id!=user['userid'] && check(user['userid'])" style="border: 1px solid;border-radius: 10px;box-shadow: 8px 8px 8px #444; background-color: rgb(255, 224, 224);">
             <div class="card-header">
             <h3><b><i>{{user["username"]}}</i></b></h3>
             </div>

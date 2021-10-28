@@ -1,6 +1,7 @@
 
    body {
     font-family: cursive;
+    display: block;
    }
    a {
     text-decoration: none;
