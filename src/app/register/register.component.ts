@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
+import { SingleUser } from '../modal';
 
 @Component({
   selector: 'app-register',
@@ -9,6 +10,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  userList:Array<SingleUser> = [];
   registerForm : FormGroup;
   imageData : string ="";
   constructor(private router:Router,private user:UserService) {
@@ -20,6 +22,7 @@ export class RegisterComponent implements OnInit {
     })
    }
   ngOnInit(): void {
+    this.getUsers()
   }
     selectedFile=null;
   // onFileSelect(event: Event) {
@@ -37,14 +40,61 @@ export class RegisterComponent implements OnInit {
   //   }
   // }
  
+  getUsers(){
+    this.user.getUsers().subscribe((data) => {
+      this.userList = data
+      console.log(data)
+    },(err) => {
+      console.log(err)
+    })
+  }
 
   submit(){
     console.log(this.registerForm.value)
-    this.user.register(this.registerForm.value).subscribe((data)=>{
-      this.router.navigate(['/login'])
-    },(err)=>{
-      console.log("Error")
-      alert("Please enter correct email/password")
-    })
+    if(this.checkUser() && this.checkEmail()){
+      this.user.register(this.registerForm.value).subscribe((data)=>{
+        this.router.navigate(['/login'])
+      },(err)=>{
+        console.log("Error")
+        alert("Please enter correct email/password")
+      })
+    }
+    else{
+      alert("username or email id already present")
+    }
+  }
+
+  checkUser(){
+    var flag=0
+    var val=this.registerForm.value
+    console.log(val["username"])
+    for(var i=0;i<this.userList.length;i++){
+      if(this.userList[i]["username"]==val["username"]){
+        flag=1
+      }
+    }
+    if(flag==1){
+      return false
+    }
+    else{
+      return true
+    }
+  }
+  checkEmail(){
+    var flag=0
+    var val=this.registerForm.value
+    console.log(this.userList[0]["email"]===val["email"])
+    console.log(this.userList[0]["email"]==val["email"])
+    for(var i=0;i<this.userList.length;i++){
+      if(this.userList[i]["email"]===val["email"]){
+        flag=1
+      }
+    }
+    if(flag==1){
+      return false
+    }
+    else{
+      return true
+    }
   }
 }

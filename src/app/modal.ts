@@ -19,11 +19,13 @@ export interface response {
     userid : number
 }
 export interface SingleUser {
+    email : string
     _id : string,
     username : string,
     userid : number,
     friends : Array<number>
     type:string
+    
 }
 
 export interface user{

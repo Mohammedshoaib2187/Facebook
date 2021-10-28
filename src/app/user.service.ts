@@ -26,12 +26,7 @@ export class UserService {
   }
 
   getUsers(){
-    return this.http.get<Array<SingleUser>>("https://facebookserverapi.herokuapp.com/all-users",{
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: localStorage.getItem("access_token") || ""
-      })
-    })
+    return this.http.get<Array<SingleUser>>("https://facebookserverapi.herokuapp.com/all-users")
   }
 
   addFriend(data : number,id:number){
