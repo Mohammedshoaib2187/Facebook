@@ -1,0 +1,27 @@
+
+    <div class="card col-lg-10 col-sm-10 text-center mx-auto mb-4"  >
+    <div class="card-header">
+      <h3 style="float:left;padding-left: 40px; padding-top: 10px;" ><b><i>Add Post</i></b></h3>
+        <a routerLink="/addpost"><button class="btn btn-primary text-center" style="float: right;padding-right: 60px;padding-top: 10px;"><i class="fa fa-plus" aria-hidden="true"></i>  &ensp;&ensp;Add post</button></a>
+      
+    </div>
+    
+</div>
+<div class="col-lg-12 col-sm-12 text-center">
+    <h1>All posts</h1><br>
+</div>
+<div class="row">
+    <div *ngFor="let post of posts; index as i">
+        <div class="card col-lg-10 col-sm-10 text-center mx-auto mb-4" *ngIf="id!=post['userid'] && check(post['userid'])">
+            <div class="card-header">
+            <h3><b><i>User : {{post["username"]}}</i></b></h3>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Post Name : {{post["postname"]}}</h5>
+                <h5 class="card-title">Description</h5>
+                <p class="card-text">{{post["description"]}}</p>
+                
+              </div>
+        </div>
+    </div>
+</div>

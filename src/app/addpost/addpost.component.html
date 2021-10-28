@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+<br>
+<div class="col-lg-12 col-sm-12 text-center">
+    <h1>Add Post</h1>
+</div>
+<br>
+<div class="col-lg-10 col-sm-10 mx-auto" id="addp">
+    <form [formGroup]="postForm" (ngSubmit)="submit()" class="was-validated">
+        <div class="col-lg-6 mx-auto mb-3">
+            <label for="">Post Name </label>
+            <input type="text"  class="form-control" formControlName="postname" required>
+        </div>
+        <div class="mb-3 col-lg-6 mx-auto">
+            <label for="validationTextarea" class="form-label">Description</label>
+            <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Required example textarea" formControlName="description" required></textarea>
+            
+          </div>
+          <div class="mb-3 col-lg-6 mx-auto">
+            <button class="btn btn-primary" type="submit" ><i class="fa fa-plus" aria-hidden="true"></i>  Add</button>
+          </div>
+
+    </form>
+</div>
