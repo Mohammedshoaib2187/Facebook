@@ -34,8 +34,10 @@ export class AllusersComponent implements OnInit {
     //   if(this.userList[i]['userid']!=this.id && this.userList[i]['type']=="public" && this.userList[i]['userid']==userid)
     //   {
         this.user.addFriend(userid,this.id).subscribe((data)=>{
+          
           alert("Friend added Successfully")
-          location.reload();
+          this.router.navigate(['/friends'])
+          
         },(err)=>{
           console.log(err)
           alert("Friend not added")
